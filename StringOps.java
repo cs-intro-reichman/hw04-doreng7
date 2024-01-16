@@ -22,21 +22,73 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
+        String str = "Hello World"; 
+        char c ='l';
+        System.out.println(capVowelsLowRest(str));
         
     }
 
     public static String capVowelsLowRest (String string) {
-        // Write your code here:
-        return "";
+        
+        string = LowerCase(string);
+        String ans = "";
+        
+        for(int i =0;i< string.length();i++){
+            char c = string.charAt(i);
+            if( c == 'a' ||c == 'u' ||c == 'o' ||c == 'i' ||c == 'e'){
+            c = (char) (c-32);
+            ans+= c;
+           }
+           else{
+            ans+=c;
+           }
+        }
+        return ans;
+    }
+
+    public static String  LowerCase(String string){
+        String ans = "";
+			 for(int i = 0; i< string.length(); i++)
+			 {
+				
+				if( ((int) string.charAt(i) >= 65) && ((int) string.charAt(i) <= 90) )
+				{
+					int character = ((int) string.charAt(i)) + 32;
+					char current = 0;
+					current += character;
+					ans += current;
+					current = 0;
+					
+				}
+                 else {
+				ans += string.charAt(i);
+				}
+			 }
+				return ans;
     }
 
     public static String camelCase (String string) {
-        // Write your code here:
+        
+        
         return "";
     }
 
     public static int[] allIndexOf (String string, char chr) {
-        // Write your code here:
-        return new int[1];
+        int counter =0;
+        for(int i=0; i<string.length();i++){
+            if(string.charAt(i)==chr){
+                   counter++;
+            }
+        }
+        int new_array [] = new int [counter];
+        int position=0;
+         for(int j=0; j<string.length();j++){
+            
+            if(string.charAt(j)==chr){
+                new_array[position]=j;
+                position++;
+            }
+         }
+        return new_array;
     }
 }
