@@ -1,10 +1,9 @@
 public class ArrayOps {
     public static void main(String[] args) {
-
-        int[] array1 = { 1,2 };
-        int[] array2 = {1, -1, 500, 76, 500, 1, 6};
+int[] array1 = {2,2,3,7,8,3,2};
+int[] array2 = {2,7,7,3,  8};
+    System.out.println(containsTheSameElements(array1, array2));
        
-       System.out.println(isSorted(array1));
     }
     
     public static int findMissingInt (int [] array) {
@@ -50,10 +49,9 @@ public class ArrayOps {
     public static boolean containsTheSameElements(int [] array1,int [] array2)
      {
         
-        int counter = 0;
+         boolean contained = false; 
         for(int i=0; i<array1.length;i++)
-        {
-            boolean contained = false;    
+        {    
             for(int j=0;j<array2.length;j++)
             {
                   if(array1[i] == array2[j])
@@ -62,27 +60,38 @@ public class ArrayOps {
                   }  
                   
             }
-            if(contained == true)
+            if(contained == false)
             {
-                counter++;
+                return false;
             }
-            
+            contained =false;
         }
-        if(counter == Math.min(array1.length, array2.length))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
+
+         for(int i=0; i<array2.length;i++)
+        {    
+            for(int j=0;j<array1.length;j++)
+            {
+                  if(array1[j] == array2[i])
+                  {
+                    contained = true;
+                  }  
+                  
+            }
+            if(contained == false)
+            {
+                return false;
+            }
+            contained =false;
         }
         
+        return true;
     }
 
     public static boolean isSorted(int [] array) {
         boolean sort = true;
         if(array.length <4)
         {
+
              if(  (array[0]<array[1] && array[1]>array[2])  || array[0]>array[1] && array[1]< array[2] )
                 {
                     sort =false;
