@@ -24,14 +24,15 @@ int[] array2 = {2,7,7,3,  8};
 
     public static int secondMaxValue(int [] array) {
         
-        int max = MaxValue(array);
-        int new_array [] = new int [array.length];
-        for(int i=0;i<array.length;i++){
-            if(array[i] != max){
-                new_array[i] = array[i];
+        int max =Math.max(array[0],array[1]);
+        int second_max = Math.max(array[0],array[1]);
+        for(int i=-0;i<array.length;i++){
+            if(array[i]> max){
+                second_max =max;
+                max=array[i];
             }
         }
-        return MaxValue(new_array);
+        return second_max;
     }
 
     public static int MaxValue(int [] array) {
