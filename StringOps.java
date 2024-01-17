@@ -22,7 +22,12 @@ public class StringOps {
     //////                                               ///////
     ////////////////////////////////////////////////////////////
     public static void main(String[] args) {
-        
+        String str = "Hello World";
+        String stringprint = camelCase(str);
+        for(int i = 0; i<stringprint.length();i++ ){
+               System.out.print(stringprint.charAt(i));     
+        }
+          
         
     }
 
@@ -67,10 +72,56 @@ public class StringOps {
 
     public static String camelCase (String string) {
         
-        
-        return "";
-    }
+        string = Lower(string);
+        string = UpperCase(string);
+        string = Spaces(string);
+        return string;
+        }
 
+        public static String Lower(String string) {
+            String str = ""; 
+            int start = 0;
+            int i = 0;
+            while (string.charAt(i) == 32) {
+                start++;
+                i++;
+            }
+            for (int j = start; j < string.length(); j++) {
+                if (string.charAt(j) >= 'A' && string.charAt(j) <= 'Z')
+                    str += (char) (string.charAt(j) + 32);
+                else
+                    str += string.charAt(j);
+            }
+            return str;
+        }
+    
+        public static String UpperCase(String string) {
+            String str = "";
+            str += string.charAt(0);
+            for (int i = 1; i < string.length(); i++) {
+                if (string.charAt(i - 1) == ' ') {
+                    if (string.charAt(i) >= 'a' && string.charAt(i) <= 'z')
+                        str += (char) (string.charAt(i) - 32);
+                    else
+                        str += string.charAt(i);
+                } else if (string.charAt(i) >= 'A' && string.charAt(i) <= 'Z')
+                    str += (char) (string.charAt(i) + 32);
+                else
+                    str += string.charAt(i);
+            }
+            return str;
+        }
+    
+        public static String Spaces(String string) {
+            String str = "";
+            for (int i = 0; i < string.length(); i++) {
+                if (string.charAt(i) != 32)
+                    str += string.charAt(i);
+            }
+            return str;
+        }
+    
+    
     public static int[] allIndexOf (String string, char chr) {
         int counter =0;
         for(int i=0; i<string.length();i++){

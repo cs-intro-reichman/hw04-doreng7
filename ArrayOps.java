@@ -37,6 +37,7 @@ int[] array2 = {2,7,7,3,  8};
 
     public static int MaxValue(int [] array) {
         
+        
         int max = array[0];
         for(int i = 1; i<array.length;i++){
             
