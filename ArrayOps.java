@@ -11,7 +11,7 @@ int[] array2 = {2,7,7,3,  8};
         int sum_general = 0;
         int sum = 0;
         for(int j = 0; j<array.length; j++){
-        sum_general+= j + 1;
+        sum_general+= j + 1;// Bad indentation 
         }
         
         for(int i = 0; i < array.length; i++){
@@ -26,6 +26,7 @@ int[] array2 = {2,7,7,3,  8};
         
         int max =Math.max(array[0],array[1]);
         int second_max = Math.max(array[0],array[1]);
+        // what is -0?
         for(int i=-0;i<array.length;i++){
             if(array[i]> max){
                 second_max =max;
@@ -77,7 +78,10 @@ int[] array2 = {2,7,7,3,  8};
                   {
                     contained = true;
                   }  
-                  
+        /* 
+        this is an aggressive copy of code, you should have created a helper function,
+            we have functions so we do not need to copy-paste code
+            */          
             }
             if(contained == false)
             {
@@ -91,6 +95,7 @@ int[] array2 = {2,7,7,3,  8};
 
     public static boolean isSorted(int [] array) {
         boolean sort = true;
+        // why did you create this case? there is no need for that
         if(array.length <4)
         {
 
