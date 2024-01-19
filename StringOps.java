@@ -38,6 +38,10 @@ public class StringOps {
         
         for(int i =0;i< string.length();i++){
             char c = string.charAt(i);
+		/* 
+  		why didn't you create a helper isVowel()?
+		could be a lot cleaner
+  		*/
             if( c == 'a' ||c == 'u' ||c == 'o' ||c == 'i' ||c == 'e'){
             c = (char) (c-32);
             ans+= c;
@@ -51,6 +55,7 @@ public class StringOps {
 
     public static String  LowerCase(String string){
         String ans = "";
+	    // Very bad Indentations
 			 for(int i = 0; i< string.length(); i++)
 			 {
 				
@@ -87,6 +92,10 @@ public class StringOps {
                 i++;
             }
             for (int j = start; j < string.length(); j++) {
+		    /* 
+	  		why didn't you create a helper isLetter()?
+			could be a lot more readable.
+	  		*/
                 if (string.charAt(j) >= 'A' && string.charAt(j) <= 'Z')
                     str += (char) (string.charAt(j) + 32);
                 else
